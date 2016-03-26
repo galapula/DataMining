@@ -1,0 +1,53 @@
+Build a classifier to detect network intrusions
+You are going to build a network intrusion detection, a predictive classifier capable of distinguishing intrusions, attacks, or bad connections from good, normal connections.
+
+Each line in the training and test files summarizes one connection record. A connection is a sequence of network packets starting and ending at some well defined times, between which data flows to and from a source IP address to a target IP address under some well defined protocol. Each connection is labeled as either normal, or as an attack, with exactly one specific attack type. Attacks fall into three main categories:
+
+DOS: denial-of-service, e.g. synchronized flooding;
+R2L: unauthorized access from a remote machine, e.g. guessing password;
+Probing: surveillance and other probing, e.g., port scanning.
+Specifically, in the given dataset, there are eight types of attacks and a ninth class to indicate normal connections, as described below: 
+
+Class Label	Attack category
+back	DOS
+ipsweep	Probing
+neptune	DOS
+portsweep	Probing
+satan	Probing
+smurf	DOS
+teardrop	DOS
+warezclient	R2L
+ 
+
+Each connection record consists of features derived from a network connection and the packets transferred during that connection. The training file (train_id.csvView in a new window) consists of 43 comma-separated values: a connection ID field, 41 features related to the connection, and one of the nine class labels listed above. Each line in the test file (test_id_unlabeled.csv) contains 42 comma-separated values (connection ID and 41 features). Note that the distribution of the categories may be different in the training and test datasets.
+
+The features are described in the file: feature-description.txtPreview the documentView in a new window
+
+Submission Format
+
+For every connection in the test dataset, submission files should contain two columns: ID and Class. Class should be one of the nine class labels (in lower case). The file should contain a header and have the following format: 
+
+ID,Class
+1,teardrop
+2,normal
+3,satan
+4,smurf
+etc.
+A sample submission file is provided (submission.csvView in a new window). 
+
+Evaluation
+
+The evaluation metric for this competition is multi-class classification accuracy. Accuracy is measured as a fraction of the total test instances that you labeled correctly. The accuracy values range from 0.0 to 1.0 and higher numbers are better.
+
+You may submit a maximum of 10 entries per day. You may select up to 5 final submissions for judging. While the Kaggle competition submission site is active, each submitted run will be evaluated on 50% of the test data, and you will be placed in the leaderboard based on this score.  After the competition ends, your final score will be based on 100% of the test dataset. Your grade for this assignment will be based on both the final score and your relative ranking on the leaderboard. 
+
+NEW: In addition to the runs you submit via Kaggle, please write out a one-page summary on what techniques you tried, what worked, and what did not work as you expected. Mention, at the very least, what technique / approach performed the best (i.e. the approach corresponding to your "best" run). You may also describe other experiments you tried (such as changing parameters, changing classification algorithm, etc.). Note that you will not be judged by the complexity of the approaches. As a data miner and analyst, you will understandably try various approaches; some will work and some won't. This exercise (and the report) will help you take a step back from the "competition" and summarize what you learnt from this assignment. Please submit your report via Canvas.
+
+File descriptions
+
+train_id.csv - the training set
+test_id_unlabeled.csv - the test set
+submission.csv - a sample submission file in the correct format
+feature_description.txt - a text file describing the features
+
+Also submit a one-page report via Canvas, on what techniques you tried, and which techniques performed the best (based on the 50% sample evaluation you get from Kaggle).
